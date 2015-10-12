@@ -43,7 +43,7 @@ In order to create classNameObject with `ClassNameGenerator`
 do the following:
 
 ```javascript
-var ClassNameGenerator = React.addons.ClassNameGenerator;
+var ClassNameGenerator = require('ClassNameGenerator');
 
 var classNameBlock = ClassNameGenerator({
   name: 'test-container',
@@ -84,7 +84,7 @@ As you can see from the markup above 'active', 'wide', 'hidden' logically define
 So they will be called modifiers and the syntax of ClassNameGenerator will be as following:
 
 ```javascript
-var ClassNameGenerator = React.addons.ClassNameGenerator;
+var ClassNameGenerator = require('ClassNameGenerator');
 
 var classNameBlock = ClassNameGenerator({
   name: 'test-container',
@@ -176,7 +176,7 @@ As you can see we have several elements with duplicate names but one of them wil
 The javascript will be as following:
 
 ```javascript
-var ClassNameGenerator = React.addons.ClassNameGenerator;
+var ClassNameGenerator = require('ClassNameGenerator');
 
 var classNameBlock = ClassNameGenerator({
   name: 'menu',
@@ -226,7 +226,7 @@ ClassNameGenerator supports BEM naming convention if you create it like this:
 
 
 ```javascript
-var ClassNameGenerator = React.addons.ClassNameGenerator.config({bemEnabled: true});
+var ClassNameGenerator = require('ClassNameGenerator').config({bemEnabled: true});
 
 var classNameBlock = ClassNameGenerator({
   name: 'test-container',
