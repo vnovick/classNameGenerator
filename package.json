@@ -1,0 +1,34 @@
+{
+  "name": "ClassNameGenerator",
+  "version": "1.0.1",
+  "description": "Vladimir Novick <vnovick@gmail.com>",
+  "main": "src/ClassNameGenerator.js",
+  "scripts": {
+    "test": "jshint . && mocha -R spec",
+    "test-watch": "mocha -R spec --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vnovick/ClassNameGenerator.git"
+  },
+  "keywords": [
+    "bem",
+    "naming",
+    "className",
+    "class",
+    "generator",
+    "tools",
+    "React"
+  ],
+  "author": "Vladimir Novick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vnovick/ClassNameGenerator/issues"
+  },
+  "homepage": "https://github.com/vnovick/ClassNameGenerator",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5"
+  }
+}
