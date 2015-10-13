@@ -1,8 +1,8 @@
 {
   "name": "classname-generator",
-  "version": "1.0.1",
+  "version": "0.0.2",
   "description": "Vladimir Novick <vnovick@gmail.com>",
-  "main": "src/ClassNameGenerator.js",
+  "main": "src/classNameGenerator.js",
   "scripts": {
     "test": "jshint . && mocha -R spec",
     "test-watch": "mocha -R spec --watch"
