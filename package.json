@@ -1,5 +1,5 @@
 {
-  "name": "ClassNameGenerator",
+  "name": "classname-generator",
   "version": "1.0.1",
   "description": "Vladimir Novick <vnovick@gmail.com>",
   "main": "src/ClassNameGenerator.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vnovick/ClassNameGenerator.git"
+    "url": "https://github.com/vnovick/classNameGenerator.git"
   },
   "keywords": [
     "bem",
@@ -23,9 +23,9 @@
   "author": "Vladimir Novick",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vnovick/ClassNameGenerator/issues"
+    "url": "https://github.com/vnovick/classNameGenerator/issues"
   },
-  "homepage": "https://github.com/vnovick/ClassNameGenerator",
+  "homepage": "https://github.com/vnovick/classNameGenerator",
   "devDependencies": {
     "chai": "^3.0.0",
     "jshint": "^2.8.0",
