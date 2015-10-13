@@ -58,7 +58,7 @@ describe('ClassNameGenerator', function() {
 
 
     it('ClassNameGenerator should be able to support BEM blocks naming for elements with modifiers', function() {
-        var customClassNameGenerator = new classNameGenerator.config({
+        var customClassNameGenerator = new classNameGenerator.Class({
             bemEnabled: true,
         });
         var bemBlock = customClassNameGenerator(ClassNameConfig);

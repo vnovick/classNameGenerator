@@ -1,11 +1,11 @@
-# ClassNameGenerator
+# classNameGenerator
 BEM methodology inspired util that let's you create classNames in React by passing proper configuration
 
 ## High-level API:
-`ClassNameGenerator` is using some key concepts and names from BEM methodology. By default BEM naming is disabled but can be enabled via configuration
+`classNameGenerator` is using some key concepts and names from BEM methodology. By default BEM naming is disabled but can be enabled via configuration
 
 ### Key concepts
-Before describing `ClassNameGenerator` it's important to understand some key concepts of classNames naming convention. There are three main entities that should be explained:
+Before describing `classNameGenerator` it's important to understand some key concepts of classNames naming convention. There are three main entities that should be explained:
 
 ##### Block
 A logically and functionally independent page component that can be reused.
@@ -19,11 +19,10 @@ className that defines appearance or behavior of an element/block. For example '
 
 ### Getting Started
 
-`ClassNameGenerator` is an instance of `ReactClassNameGenerator` class which is created by passing configuration object with desired block and element names.
-`ClassNameGenerator.config` is ReactClassNameGenerator Class and can be used to change ReactClassNameGenerator default configuration.
+`classNameGenerator` is an instance of `ClassNameGenerator` class which is created by passing configuration object with desired block and element names.
+`classNameGenerator.Class` is ClassNameGenerator Class and can be used to create custom classNameGenerator with different configuration.
 
-Following are examples of desired markup, configuration object that should be passed to `ClassNameGenerator` to achieve relevant classes and the result of ClassNameGenerator
-
+Following are examples of desired markup, configuration object that should be passed to `classNameGenerator` to achieve relevant classNameBlock
 #### Basic Usage
 
 ##### Simple block with some elements inside
@@ -39,13 +38,13 @@ Let's say you want to create this kind of markup:
 
 In this case "test-container" is a block with two elements "panel" and "card"
 
-In order to create classNameObject with `ClassNameGenerator`
+In order to create classNameObject with `classNameGenerator`
 do the following:
 
 ```javascript
-var ClassNameGenerator = require('ClassNameGenerator');
+var classNameGenerator = require('classNameGenerator');
 
-var classNameBlock = ClassNameGenerator({
+var classNameBlock = classNameGenerator({
   name: 'test-container',
   elements: [{
     name: 'panel'
@@ -81,12 +80,12 @@ Let's say you need the following markup:
 
 As you can see from the markup above 'active', 'wide', 'hidden' logically define appearance of 'tab-container', 'panel' and 'card' respectively
 
-So they will be called modifiers and the syntax of ClassNameGenerator will be as following:
+So they will be called modifiers and the syntax of classNameGenerator will be as following:
 
 ```javascript
-var ClassNameGenerator = require('ClassNameGenerator');
+var classNameGenerator = require('classNameGenerator');
 
-var classNameBlock = ClassNameGenerator({
+var classNameBlock = classNameGenerator({
   name: 'test-container',
   elements: [{
     name: 'panel',
@@ -176,9 +175,9 @@ As you can see we have several elements with duplicate names but one of them wil
 The javascript will be as following:
 
 ```javascript
-var ClassNameGenerator = require('ClassNameGenerator');
+var classNameGenerator = require('classNameGenerator');
 
-var classNameBlock = ClassNameGenerator({
+var classNameBlock = classNameGenerator({
   name: 'menu',
   elements: [{
     name: 'item',
@@ -222,13 +221,13 @@ For example class naming will be as following
 </div>
 ```
 
-ClassNameGenerator supports BEM naming convention if you create it like this:
+classNameGenerator supports BEM naming convention if you create it like this:
 
 
 ```javascript
-var ClassNameGenerator = require('ClassNameGenerator').config({bemEnabled: true});
+var classNameGenerator = require('classNameGenerator').config({bemEnabled: true});
 
-var classNameBlock = ClassNameGenerator({
+var classNameBlock = classNameGenerator({
   name: 'test-container',
   elements: [{
     name: 'panel',

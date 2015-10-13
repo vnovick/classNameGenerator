@@ -1,13 +1,16 @@
 <html>
 <head>
-<script src="../src/ClassNameGenerator.js"></script>
+<script src="../node_modules/babel-core/browser.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+<script src="../src/classNameGenerator.js"></script>
 </head>
 <body>
 <div id="content"></div>
 
 <style>
+  h1 {
+    text-align: center;
+  }
   .test-container {
     width:500px;
     height: 200px;
@@ -39,7 +42,7 @@
 
 
 </style>
-<script type="text/jsx">
+<script type="text/babel">
 var config = {
   name: "test-container",
   elements: [{
@@ -66,15 +69,29 @@ var config = {
   modifiers: {
     visible: true
   }
-};
+}
 
-var classNameBlock = ClassNameGenerator(config);
+var classNameBlock = classNameGenerator(config);
+var BemGenerator = new classNameGenerator.Class({bemEnabled: true})
+var BEMBlock = BemGenerator(config);
+
+var ExampleBEMDiv = React.createClass({
+  render: function() {
+    return (
+      <div className={BEMBlock}>
+        <p>{"BEM Block with class " + BEMBlock}</p>
+        <div className={BEMBlock.el1}><p>{"Red element with class " + BEMBlock.el1}</p></div>
+        <div className={BEMBlock.el2}><p>{"Blue element with class " + BEMBlock.el2}</p></div>
+      </div>
+    );
+  }
+});
 
 var ExampleDiv = React.createClass({
   render: function() {
     return (
       <div className={classNameBlock}>
-        <p>{"Parent Block with class " + classNameBlock}</p>
+        <p>{"Block with class " + classNameBlock}</p>
         <div className={classNameBlock.el1}><p>{"Red element with class " + classNameBlock.el1}</p></div>
         <div className={classNameBlock.el2}><p>{"Blue element with class " + classNameBlock.el2}</p></div>
       </div>
@@ -83,7 +100,11 @@ var ExampleDiv = React.createClass({
 });
 React.render(
   <div>
-    <ExampleDiv />
+    <h1>Regular named block</h1>
+      <ExampleDiv />
+        <hr/>
+        <h1>BEM named block</h1>
+      <ExampleBEMDiv />
   </div>
   ,
   document.getElementById('content')

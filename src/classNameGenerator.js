@@ -9,7 +9,7 @@
         define([], factory);
     } else {
         // Browser globals
-        root.ClassNameGenerator = factory();
+        root.classNameGenerator = factory();
     }
 })
 (this, function() {
@@ -23,9 +23,9 @@
    bemEnabled: false,
  };
 
- function ReactClassNameGenerator(options) {
-   if (!(this instanceof ReactClassNameGenerator)) {
-     return getReactClassNameGeneratorInstance(options);
+ function ClassNameGenerator(options) {
+   if (!(this instanceof ClassNameGenerator)) {
+     return getClassNameGeneratorInstance(options);
    }
    options = options || {};
    this.elementSeperator = options.elementSeperator || defaults.elementSeperator;
@@ -36,7 +36,7 @@
    return this.generateBlockClassNames.bind(this);
  }
 
- ReactClassNameGenerator.prototype = {
+ ClassNameGenerator.prototype = {
 
    _createModifier: function(base, modifierKey, modifierValue) {
      if (modifierValue) {
@@ -61,9 +61,10 @@
    },
    _generateElement: function(base, el, generatedElementsObject, elementObject) {
      var elementName = el.name;
+     var elCopy = Object.assign({},el);
      var bemPrefix = this.bemEnabled ? base + this.elementSeperator : '';
-     el.name = bemPrefix + el.name;
-     var generatedBlock = this.generateBlockClassNames(el);
+     elCopy.name = bemPrefix + el.name;
+     var generatedBlock = this.generateBlockClassNames(elCopy);
      try {
        elementName = generatedElementsObject.hasOwnProperty(elementName) && el.alias ? el.alias : elementName;
        Object.defineProperty(generatedElementsObject, elementName, {
@@ -118,13 +119,13 @@
    },
  };
 
- function getReactClassNameGeneratorInstance(options) {
-   var classNameGenerator = new ReactClassNameGenerator(options);
+ function getClassNameGeneratorInstance() {
+   var classNameGenerator = new ClassNameGenerator();
    return classNameGenerator;
  }
 
- var ClassNameGenerator = getReactClassNameGeneratorInstance();
- ClassNameGenerator.config = ReactClassNameGenerator;
+ var classNameGenerator = getClassNameGeneratorInstance();
+ classNameGenerator.Class = ClassNameGenerator;
 
- return ClassNameGenerator;
+ return classNameGenerator;
 });
