@@ -2,7 +2,7 @@
 BEM methodology inspired util that let's you create classNames in React by passing proper configuration. You can also use library outside of React since there are no React dependencies
 
 ## High-level API:
-`classNameGenerator` is using some key concepts and names from BEM methodology. By default BEM naming is disabled but can be enabled via configuration
+`classNameGenerator` is using some key concepts and names from BEM methodology. By default BEM naming is disabled but can be enabled via configuration. It's compatible with AMD, CommonJS and also can be used as browser global.
 
 ### Key concepts
 Before describing `classNameGenerator` it's important to understand some key concepts of classNames naming convention. There are three main entities that should be explained:
@@ -234,9 +234,10 @@ classNameGenerator supports BEM naming convention if you create it like this:
 
 
 ```javascript
-var classNameGenerator = require('classNameGenerator').config({bemEnabled: true});
+var ClassNameGenerator = require('classNameGenerator').Class;
+var customGenerator = new ClassNameGenerator({bemEnabled: true});
 
-var classNameBlock = classNameGenerator({
+var classNameBlock = customGenerator({
   name: 'test-container',
   elements: [{
     name: 'panel',
