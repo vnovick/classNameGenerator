@@ -1,5 +1,5 @@
 # classNameGenerator
-BEM methodology inspired util that let's you create classNames in React by passing proper configuration
+BEM methodology inspired util that let's you create classNames in React by passing proper configuration. You can also use library outside of React since there are no React dependencies
 
 ## High-level API:
 `classNameGenerator` is using some key concepts and names from BEM methodology. By default BEM naming is disabled but can be enabled via configuration
@@ -54,15 +54,18 @@ var classNameBlock = classNameGenerator({
   }]
 })
 
-React.createClass({
-  render: function()
+var Element = React.createClass({
+  render: function() {
     return (
       <div className={classNameBlock}>
         <div className={classNameBlock.panel}></div>
         <div className={classNameBlock.card}></div>
       </div>
     )
+  }
 })
+
+React.render(<Element />,document.body);
 
 ```
 
@@ -105,15 +108,18 @@ var classNameBlock = classNameGenerator({
   }
 })
 
-React.createClass({
-  render: function()
+var Element = React.createClass({
+  render: function() {
     return (
       <div className={classNameBlock}>
         <div className={classNameBlock.panel}></div>
         <div className={classNameBlock.card}></div>
       </div>
     )
+  }
 })
+
+React.render(<Element />,document.body);
 
 ```
 #### Usage Variations:
@@ -181,31 +187,34 @@ var classNameBlock = classNameGenerator({
   name: 'menu',
   elements: [{
     name: 'item',
-    alias: 'activeItem'
     modifiers: {
-      active: true,
+      active: false,
     }
   },
   {
-    name: 'item'
+    name: 'item',
+    alias: 'activeItem',
     modifiers: {
-      active: false
+      active: true,
     }
   }]
 })
 
-React.createClass({
-  render: function()
-    return (
-      <nav>
-        <ul className={classNameBlock}>
-          <li className={classNameBlock.activeItem}></li>
-          <li className={classNameBlock.item}></li>
-          <li className={classNameBlock.item}></li>
-        </ul>
-      </nav>
-    )
+var Element = React.createClass({
+  render: function() {
+      return (
+        <nav>
+          <ul className={classNameBlock}>
+            <li className={classNameBlock.activeItem}></li>
+            <li className={classNameBlock.item}></li>
+            <li className={classNameBlock.item}></li>
+          </ul>
+        </nav>
+      )
+    }
 });
+
+React.render(<Element />,document.body);
 ```
 
 
@@ -237,7 +246,7 @@ var classNameBlock = classNameGenerator({
     }
   },
   {
-    name: 'card'
+    name: 'card',
     modifiers: {
       hidden: true
     }
@@ -247,16 +256,18 @@ var classNameBlock = classNameGenerator({
   }
 })
 
-React.createClass({
-  render: function()
+var Element = React.createClass({
+  render: function() {
     return (
       <div className={classNameBlock}>
         <div className={classNameBlock.panel}></div>
         <div className={classNameBlock.card}></div>
       </div>
     )
+  }
 })
 
+React.render(<Element />,document.body);
 ```
 
 There are several other configurable properties:

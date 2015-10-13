@@ -60,7 +60,7 @@
      return modifierClassString;
    },
    _generateElement: function(base, el, generatedElementsObject, elementObject) {
-     var elementName = el.name;
+     var elementName = el.alias || el.name;
      var elCopy = Object.assign({},el);
      var bemPrefix = this.bemEnabled ? base + this.elementSeperator : '';
      elCopy.name = bemPrefix + el.name;
