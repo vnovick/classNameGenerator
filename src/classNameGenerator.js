@@ -24,7 +24,7 @@
    bemEnabled: false,
  };
 var toCamelCase = function(str, delimiter) {
-  var delimiter = delimiter || defaults.elementNameSeperator;
+  delimiter = delimiter || defaults.elementNameSeperator;
   return str.toLowerCase().
     replace(new RegExp(delimiter + '([a-z])', 'g'), function (word) {
     return word[1].toUpperCase();
