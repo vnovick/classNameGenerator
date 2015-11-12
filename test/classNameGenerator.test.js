@@ -64,7 +64,7 @@ describe('ClassNameGenerator', function() {
         var bemBlock = customClassNameGenerator(ClassNameConfig);
         expect(bemBlock.element1.name).to.eql('test-container__element1 test-container__element1--hidden test-container__element1--test-secondVal');
     });
-    it('ClassNameGenerator shoudl allow object dot notation', function() {
+    it('ClassNameGenerator should allow object dot notation of elements and child elements', function() {
       var dotNotationConfig = {
         name: 'test-container',
         elements: [
@@ -85,9 +85,9 @@ describe('ClassNameGenerator', function() {
             },
         ],
       };
-
-        var classNameBlock = classNameGenerator(dotNotationConfig);
-        expect(classNameBlock.element1.name).to.eql('element1 hidden test-secondVal');
+      var classNameBlock = classNameGenerator(dotNotationConfig);
+      expect(classNameBlock.myElementOne.childOne).to
+        .eql(classNameBlock.elements['myElementOne'].elements['childOne']);
     });
 
 
