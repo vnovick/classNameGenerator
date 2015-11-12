@@ -88,7 +88,6 @@ var toCamelCase = function(str, delimiter) {
        }
      }
 
-
      return generatedElementsObject;
    },
    _generateElementList: function(b, elementObject) {
