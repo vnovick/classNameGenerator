@@ -22,6 +22,13 @@
    classSeperator: ' ',
    bemEnabled: false,
  };
+var toCamelCase =function(str, delimiter) {
+  var delimiter = delimiter||'-';
+  return str.toLowerCase().
+    replace(new RegExp(delimiter + '([a-z])', 'g'), function (word) {
+    return word[1].toUpperCase();
+  });
+};
 
  function ClassNameGenerator(options) {
    if (!(this instanceof ClassNameGenerator)) {
@@ -60,7 +67,7 @@
      return modifierClassString;
    },
    _generateElement: function(base, el, generatedElementsObject, elementObject) {
-     var elementName = el.alias || el.name;
+     var elementName = toCamelCase(el.alias || el.name);
      var elCopy = Object.assign({},el);
      var bemPrefix = this.bemEnabled ? base + this.elementSeperator : '';
      elCopy.name = bemPrefix + el.name;
