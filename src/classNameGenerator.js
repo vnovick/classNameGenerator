@@ -49,7 +49,6 @@ var toCamelCase = function(str, delimiter) {
 
    _createModifier: function(base, modifierKey, modifierValue) {
      if (modifierValue) {
-       modifierKey = modifierKey;
        var bemPrefix = this.bemEnabled ? base + this.modSeperator : '';
        return this.classSeperator + bemPrefix + modifierKey;
      } else {
