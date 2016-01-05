@@ -17,19 +17,11 @@
 
  var defaults = {
    elementSeperator: '__',
-   elementNameSeperator: '-',
    modSeperator: '--',
    modValueSeperator: '-',
    classSeperator: ' ',
    bemEnabled: false,
  };
-var toCamelCase = function(str, delimiter) {
-  delimiter = delimiter || defaults.elementNameSeperator;
-  return str.toLowerCase().
-    replace(new RegExp(delimiter + '([a-z])', 'g'), function (word) {
-    return word[1].toUpperCase();
-  });
-};
 
  function ClassNameGenerator(options) {
    if (!(this instanceof ClassNameGenerator)) {
@@ -37,7 +29,6 @@ var toCamelCase = function(str, delimiter) {
    }
    options = options || {};
    this.elementSeperator = options.elementSeperator || defaults.elementSeperator;
-   this.elementNameSeperator = options.elementNameSeperator || defaults.elementNameSeperator;
    this.modSeperator = options.modSeperator || defaults.modSeperator;
    this.modValueSeperator = options.modValueSeperator || defaults.modValueSeperator;
    this.classSeperator = options.classSeperator || defaults.classSeperator;
@@ -69,7 +60,7 @@ var toCamelCase = function(str, delimiter) {
      return modifierClassString;
    },
    _generateElement: function(base, el, generatedElementsObject, elementObject) {
-     var elementName = toCamelCase(el.alias || el.name, this.elementNameSeperator);
+     var elementName = el.alias || el.name;
      var elCopy = Object.assign({},el);
      var bemPrefix = this.bemEnabled ? base + this.elementSeperator : '';
      elCopy.name = bemPrefix + el.name;
@@ -86,6 +77,7 @@ var toCamelCase = function(str, delimiter) {
          throw new TypeError('Element classNames and aliases cannot have duplicate values. Trying to assign duplicate ' + errorReason + ' check configuration Object');
        }
      }
+
 
      return generatedElementsObject;
    },
